@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Rent Register.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Register</span>
+	</ui:define>
+
+	<ui:define name="content">
+
+		<h:form>
+
+
+			<h:outputLabel for="idRent" value="Código" styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="idRent" styleClass="form-control"
+				value="#{rentController.r.idRent}" required="true" />
+
+			<br />
+			<h:outputLabel for="int" value="Amount Rent"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="int" styleClass="form-control"
+				value="#{rentController.r.amountRent}" maxlength="30"
+				required="true" />
+				
+			<h:outputLabel for="int" value="Quantity Rent"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="int" styleClass="form-control"
+				value="#{rentController.r.quantityRent}" maxlength="30"
+				required="true" />
+
+			<h:outputLabel for="date" value="Fecha de Renta "
+				styleClass="control-label" />
+
+			<p:calendar id="date" pattern="dd/MM/yyyy"
+				value="#{rentController.r.startdateRent}" showOn="button"
+				timeZone="UTC" required="true">
+			</p:calendar>
+			<br />
+			<h:outputLabel for="date" value="Fecha de Entrega "
+				styleClass="control-label" />
+			<p:calendar id="date" pattern="dd/MM/yyyy"
+				value="#{rentController.r.enddateRent}" showOn="button"
+				timeZone="UTC" required="true">
+			</p:calendar>
+			<br />
+
+			<p:commandButton value="Grabar"
+				actionListener="#{rentController.insert()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listRent?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listRent?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

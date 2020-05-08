@@ -10,6 +10,7 @@
 		<class>pe.edu.upc.entity.UserRol</class>
 		<class>pe.edu.upc.entity.Customer</class>
 		<class>pe.edu.upc.entity.Rol</class>
+		<class>pe.edu.upc.entity.Rent</class>
 		<properties>
 			<property
 				name="javax.persistence.schema-generation.database.action"
