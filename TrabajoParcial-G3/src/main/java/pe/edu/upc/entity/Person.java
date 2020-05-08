@@ -1,8 +1,19 @@
 package pe.edu.upc.entity;
 
-public class Person {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "Person")
+public class Person {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idPerson;
+	
 	private String namePerson;
 	private String lastnamePerson;
 	private String mailPerson;
