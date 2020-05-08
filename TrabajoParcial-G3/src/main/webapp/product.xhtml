@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+    <ui:define name="title">
+        .:Registro de Producto:.
+    </ui:define>
+    
+    <ui:define name="titleCont">
+        <span>Producto</span>
+    </ui:define>
+    <ui:define name="content">
+        <h:form>
+            <h:outputLabel for="idRent" value="Id"
+                styleClass="control-label"/><br/>
+                
+            <p:inputText autocomplete="off" id="idProduct" styleClass="form-control"
+                value="#{productController.p.idProduct}" required="true"/>
+            <br/><br/>
+            
+            <h:outputLabel for="Name" value="Name"
+                styleClass="control-label"/><br/>
+            <p:inputText autocomplete="off" id="Name" styleClass="form-control"
+                value="#{productController.p.nameProduct}" maxlength="30"
+                required="true"/>
+            <br/><br/>
+            
+            <h:outputLabel for="Stock" value="Stock"
+                styleClass="control-label"/><br/>
+            <p:inputText autocomplete="off" id="Stock" styleClass="form-control"
+                value="#{productController.p.stockProduct}" maxlength="30"
+                required="true"/>
+            <br/><br/>
+            
+           <h:outputLabel for="Descripcion" value="Descripcion"
+                styleClass="control-label"/><br/>
+            <p:inputText autocomplete="off" id="Descripcion" styleClass="form-control"
+                value="#{productController.p.descriptionProduct}" maxlength="30"
+                required="true"/>
+            <br/><br/>
+            
+            <h:outputLabel for="Image" value="Image"
+                styleClass="control-label"/><br/>
+            <p:inputText autocomplete="off" id="Image" styleClass="form-control"
+                value="#{productController.p.imageProduct}" maxlength="30"
+                required="true"/>
+            <br/><br/>
+            
+            <h:outputLabel for="Price" value="Price"
+                styleClass="control-label"/><br/>
+            <p:inputText autocomplete="off" id="Price" styleClass="form-control"
+                value="#{productController.p.priceProduct}" maxlength="30"
+                required="true"/>
+            <br/><br/>
+                
+            <h:outputLabel for="Category" value="Category"
+                styleClass="control-label" /><br/>
+            <p:inputText autocomplete="on" id="Category" styleClass="form-control"
+                value="#{productController.c.idCategory}"
+                maxlength="30" required="true"/>    
+          <br/><br/>
+          
+           
+          
+          <p:commandButton value="Grabar"
+				actionListener="#{productController.insert()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listR?faces-redirect=true"/>
+                <br/>
+                <br/>
+            <p:commandButton value="Cancelar"
+                action="listrent?faces-redirect=true" immediate="true"
+                styleClass="btn btn-default" ajax="false"/>
+            <p:growl id="growl" sticky="true" showDetail="true" life="3000"/>
+            <br/><br/><br/>
+        </h:form>
+    </ui:define>
+
+    <ui:define name="footerCont">
+
+    </ui:define>
+</ui:composition>
+</html>

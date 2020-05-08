@@ -17,9 +17,6 @@ import pe.edu.upc.serviceinterface.IRolService;
 @ViewScoped
 public class MasterController implements Serializable {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	@Inject
 	private IRolService rS;
@@ -53,17 +50,26 @@ public class MasterController implements Serializable {
 
 		String rol = "";
 		switch (viewId) {
-		case "/part.xhtml":
+		case "/lvoucher.xhtml":
 			rol = "USER,ADMIN";
 			break;
-		case "/listPart.xhtml":
-			rol = "ADMIN";
+		case "/voucher.xhtml":
+			rol = "USER,ADMIN";
 			break;
-		case "/motor.xhtml":
-			rol = "USER";
+		case "/lrent.xhtml":
+			rol = "USER,ADMIN";
+			break;
+		case "/rent.xhtml":
+			rol = "USER,ADMIN";
+			break;
+		case "/rentMod.xhtml":
+			rol = "USER,ADMIN";
+			break;
+		case "/product.xhtml":
+			rol = "USER,ADMIN";
 			break;
 		case "/panel.xhtml":
-			rol = "ADMIN,USER";
+			rol = "USER,ADMIN";
 			break;
 		
 		default:
